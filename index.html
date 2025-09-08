@@ -4,24 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Reza Ar Razi - Portfolio</title>
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #333; }
-    header { background: #222; color: #fff; text-align: center; padding: 2rem; }
-    header h1 { margin: 0; font-size: 2.5rem; }
-    header p { font-size: 1.2rem; }
-    .container { width: 90%; max-width: 900px; margin: 2rem auto; }
-    h2 { color: #222; margin-top: 2rem; }
-    .project { background: #fff; padding: 1.5rem; margin: 1rem 0; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    .project h3 { margin-top: 0; }
-    .project a { color: #0066cc; text-decoration: none; }
-    .project a:hover { text-decoration: underline; }
+    :root {
+      --primary: #2563eb; /* blue accent */
+      --background: #f5f7fa;
+      --card-bg: #fff;
+      --text-dark: #1e293b;
+      --text-light: #64748b;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Poppins', sans-serif; background: var(--background); color: var(--text-dark); line-height: 1.6; }
+    
+    /* Header / Hero */
+    header {
+      background: linear-gradient(135deg, #1e3a8a, #2563eb);
+      color: white; text-align: center; padding: 4rem 2rem;
+    }
+    header h1 { font-size: 3rem; font-weight: 700; }
+    header p { font-size: 1.2rem; color: #e2e8f0; margin-top: 0.5rem; }
+    
+    /* Container */
+    .container { width: 90%; max-width: 1100px; margin: 2rem auto; }
+    h2 { font-size: 2rem; margin: 2rem 0 1rem; border-bottom: 3px solid var(--primary); display: inline-block; }
+    
+    /* Projects grid */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+    .project {
+      background: var(--card-bg);
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .project:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
+    }
+    .project h3 { margin-bottom: 0.5rem; color: var(--primary); }
+    .project ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--text-light); }
+    .project li { margin-bottom: 0.3rem; }
+    
     iframe, img { width: 100%; border-radius: 8px; margin-top: 1rem; }
-    img { max-height: 400px; object-fit: contain; }
-    footer { background: #222; color: #fff; text-align: center; padding: 1rem; margin-top: 2rem; }
+    img { max-height: 220px; object-fit: cover; }
+    
+    /* Contact section */
+    .contact p { margin: 0.5rem 0; font-size: 1.1rem; }
+    .contact a { color: var(--primary); text-decoration: none; }
+    .contact a:hover { text-decoration: underline; }
+    
+    /* Footer */
+    footer { background: #1e293b; color: white; text-align: center; padding: 1.2rem; margin-top: 3rem; font-size: 0.9rem; }
   </style>
 </head>
 <body>
 
+  <!-- Hero Section -->
   <header>
     <h1>Muhammad Reza Ar Razi</h1>
     <p>AI Engineer • Researcher • Builder</p>
@@ -29,70 +72,75 @@
 
   <div class="container">
     <h2>Projects</h2>
+    <div class="projects-grid">
 
-    <div class="project">
-      <h3>AI-Powered Job Application Copilot – <a href="http://workieapp.com" target="_blank">workieapp.com</a></h3>
-      <ul>
-        <li>AI-powered resume parsing, diagnostics, and job matching with match scores.</li>
-        <li>Interactive Resume Editor for live previews and edits.</li>
-      </ul>
-      <iframe src="https://docs.google.com/file/d/1RhJIWftfzwdcUUP17wJEWh6rec-rdt-d/preview" height="315" allow="autoplay"></iframe>
-    </div>
+      <div class="project">
+        <h3>AI-Powered Job Application Copilot – <a href="http://workieapp.com" target="_blank">workieapp.com</a></h3>
+        <ul>
+          <li>AI-powered resume parsing, diagnostics, and job matching with match scores.</li>
+          <li>Interactive Resume Editor for live previews and edits.</li>
+        </ul>
+        <iframe src="https://docs.google.com/file/d/1RhJIWftfzwdcUUP17wJEWh6rec-rdt-d/preview" height="200" allow="autoplay"></iframe>
+      </div>
 
-    <div class="project">
-      <h3>AI-Powered Job Application Copilot – Chrome Extension</h3>
-      <ul>
-        <li>Instant job posting saving & AI-generated match scores.</li>
-        <li>AI autofill for application forms using Workie profile data.</li>
-        <li>Centralized job tracking synced with main dashboard.</li>
-      </ul>
-      <iframe src="https://docs.google.com/file/d/1axboXzjnCFG1fzkNKm6ZxbrFQsG-vUTg/preview" height="315" allow="autoplay"></iframe>
-    </div>
+      <div class="project">
+        <h3>Job Copilot – Chrome Extension</h3>
+        <ul>
+          <li>Instant job posting saving & AI-generated match scores.</li>
+          <li>AI autofill for application forms using Workie profile data.</li>
+          <li>Centralized job tracking synced with main dashboard.</li>
+        </ul>
+        <iframe src="https://docs.google.com/file/d/1axboXzjnCFG1fzkNKm6ZxbrFQsG-vUTg/preview" height="200" allow="autoplay"></iframe>
+      </div>
 
-    <div class="project">
-      <h3>AI Agent for Digital Twin Interaction</h3>
-      <ul>
-        <li>Conversational AI agent for factory insights using natural language queries.</li>
-        <li>Built with LangGraph + ReAct-based reasoning engine.</li>
-        <li>Integrates RAG, SQL, APIs, and live sensor data.</li>
-      </ul>
-      <iframe src="https://docs.google.com/file/d/1l19JRfLrSkDN7OzXoGHplsafH-e4nta5/preview" height="315" allow="autoplay"></iframe>
-    </div>
+      <div class="project">
+        <h3>AI Agent for Digital Twin Interaction</h3>
+        <ul>
+          <li>Conversational AI agent for factory insights using natural language queries.</li>
+          <li>Built with LangGraph + ReAct-based reasoning engine.</li>
+          <li>Integrates RAG, SQL, APIs, and live sensor data.</li>
+        </ul>
+        <iframe src="https://docs.google.com/file/d/1l19JRfLrSkDN7OzXoGHplsafH-e4nta5/preview" height="200" allow="autoplay"></iframe>
+      </div>
 
-    <div class="project">
-      <h3>LoRRA (Low-Rank Representation Adaptation)</h3>
-      <ul>
-        <li>Defense mechanism to make LLMs robust against adversarial attacks.</li>
-        <li>“Circuit breaking” system for harmful representation rerouting.</li>
-        <li>Improves robustness without degrading model utility.</li>
-      </ul>
-      <img src="images/circuit-breaker.png" alt="LoRRA project screenshot">
-    </div>
+      <div class="project">
+        <h3>LoRRA (Low-Rank Representation Adaptation)</h3>
+        <ul>
+          <li>Defense mechanism to make LLMs robust against adversarial attacks.</li>
+          <li>“Circuit breaking” system for harmful representation rerouting.</li>
+          <li>Improves robustness without degrading model utility.</li>
+        </ul>
+        <img src="images/circuit-breaker.png" alt="LoRRA project screenshot">
+      </div>
 
-    <div class="project">
-      <h3>Privacy Scalpel</h3>
-      <ul>
-        <li>Novel privacy defense for LLMs using Sparse Autoencoders.</li>
-        <li>Disentangles features responsible for PII leakage.</li>
-        <li>Reduces privacy risks while maintaining utility.</li>
-      </ul>
-      <img src="images/privacy-scalpel.png" alt="Privacy Scalpel diagram">
-    </div>
+      <div class="project">
+        <h3>Privacy Scalpel</h3>
+        <ul>
+          <li>Novel privacy defense for LLMs using Sparse Autoencoders.</li>
+          <li>Disentangles features responsible for PII leakage.</li>
+          <li>Reduces privacy risks while maintaining utility.</li>
+        </ul>
+        <img src="images/privacy-scalpel.png" alt="Privacy Scalpel diagram">
+      </div>
 
-    <div class="project">
-      <h3>Sales Development Representatives Agent</h3>
-      <ul>
-        <li>Multi-agent AI system for automated sales research & lead generation.</li>
-        <li>Uses Bright Data + Tavily Search for live research.</li>
-        <li>Automated reporting with clean, actionable summaries.</li>
-      </ul>
-      <iframe src="https://docs.google.com/file/d/1i8r5Ut-JXdFcH8qV-_ys1uEsFo39NJqY/preview" height="315" allow="autoplay"></iframe>
+      <div class="project">
+        <h3>Sales Development Representatives Agent</h3>
+        <ul>
+          <li>Multi-agent AI system for automated sales research & lead generation.</li>
+          <li>Uses Bright Data + Tavily Search for live research.</li>
+          <li>Automated reporting with clean, actionable summaries.</li>
+        </ul>
+        <iframe src="https://docs.google.com/file/d/1i8r5Ut-JXdFcH8qV-_ys1uEsFo39NJqY/preview" height="200" allow="autoplay"></iframe>
+      </div>
+
     </div>
 
     <h2>Contact</h2>
-    <p>📧 Email: <a href="mailto:rezaarrazi@gmail.com">rezaarrazi@gmail.com</a></p>
-    <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/reza-ar-razi/" target="_blank">linkedin.com/in/reza-ar-razi</a></p>
-    <p>🐙 GitHub: <a href="https://github.com/rezaarrazi" target="_blank">github.com/rezaarrazi</a></p>
+    <div class="contact">
+        <p>📧 Email: <a href="mailto:rezaarrazi@gmail.com">rezaarrazi@gmail.com</a></p>
+        <p>💼 LinkedIn: <a href="https://www.linkedin.com/in/reza-ar-razi/" target="_blank">linkedin.com/in/reza-ar-razi</a></p>
+        <p>🐙 GitHub: <a href="https://github.com/rezaarrazi" target="_blank">github.com/rezaarrazi</a></p>
+    </div>
   </div>
 
   <footer>
