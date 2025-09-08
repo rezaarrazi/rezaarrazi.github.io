@@ -4,11 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Muhammad Reza Ar Razi - Portfolio</title>
-  <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --primary: #2563eb; /* blue accent */
+      --primary: #2563eb;
       --background: #f5f7fa;
       --card-bg: #fff;
       --text-dark: #1e293b;
@@ -16,55 +15,85 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'Poppins', sans-serif; background: var(--background); color: var(--text-dark); line-height: 1.6; }
-    
-    /* Header / Hero */
-    header {
-      background: linear-gradient(135deg, #1e3a8a, #2563eb);
-      color: white; text-align: center; padding: 4rem 2rem;
-    }
+
+    header { background: linear-gradient(135deg, #1e3a8a, #2563eb); color: white; text-align: center; padding: 4rem 2rem; }
     header h1 { font-size: 3rem; font-weight: 700; }
     header p { font-size: 1.2rem; color: #e2e8f0; margin-top: 0.5rem; }
-    
-    /* Container */
+
     .container { width: 90%; max-width: 1100px; margin: 2rem auto; }
     h2 { font-size: 2rem; margin: 2rem 0 1rem; border-bottom: 3px solid var(--primary); display: inline-block; }
-    
-    /* Projects grid */
-    .projects-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 2rem;
-    }
+
+    .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
     .project {
       background: var(--card-bg);
       border-radius: 12px;
       padding: 1.5rem;
       box-shadow: 0 4px 12px rgba(0,0,0,0.08);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      cursor: pointer;
     }
-    .project:hover {
-      transform: translateY(-6px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.12);
-    }
+    .project:hover { transform: translateY(-6px); box-shadow: 0 8px 20px rgba(0,0,0,0.12); }
     .project h3 { margin-bottom: 0.5rem; color: var(--primary); }
     .project ul { margin: 0.5rem 0 0; padding-left: 1.2rem; color: var(--text-light); }
     .project li { margin-bottom: 0.3rem; }
-    
-    iframe, img { width: 100%; border-radius: 8px; margin-top: 1rem; }
-    img { max-height: 220px; object-fit: cover; }
-    
-    /* Contact section */
+    .project img { width: 100%; border-radius: 8px; margin-top: 1rem; max-height: 180px; object-fit: cover; }
+
     .contact p { margin: 0.5rem 0; font-size: 1.1rem; }
     .contact a { color: var(--primary); text-decoration: none; }
     .contact a:hover { text-decoration: underline; }
-    
-    /* Footer */
+
     footer { background: #1e293b; color: white; text-align: center; padding: 1.2rem; margin-top: 3rem; font-size: 0.9rem; }
+
+    /* Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 1000;
+      inset: 0;
+      width: 100%; height: 100%;
+      background: rgba(0,0,0,0.85);
+      justify-content: center; align-items: center;
+      padding: 1rem;
+    }
+    .modal-content {
+      max-width: 90%;
+      max-height: 90%;
+      position: relative;
+    }
+    .modal-content iframe,
+    .modal-content img {
+      width: 100%;
+      height: auto;
+      max-height: 90vh;
+      border-radius: 8px;
+      display: block;
+      margin: auto;
+      background: #000;
+    }
+    .close {
+      position: absolute;
+      top: 15px; right: 20px;
+      font-size: 2rem;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 3rem;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+      padding: 0 15px;
+    }
+    .arrow.left { left: 10px; }
+    .arrow.right { right: 10px; }
   </style>
 </head>
 <body>
 
-  <!-- Hero Section -->
   <header>
     <h1>Muhammad Reza Ar Razi</h1>
     <p>AI Engineer • Researcher • Builder</p>
@@ -74,36 +103,36 @@
     <h2>Projects</h2>
     <div class="projects-grid">
 
-      <div class="project">
-        <h3>AI-Powered Job Application Copilot – <a href="http://workieapp.com" target="_blank">workieapp.com</a></h3>
+      <div class="project" onclick="openModal(0)">
+        <h3>AI-Powered Job Application Copilot – workieapp.com</h3>
         <ul>
           <li>AI-powered resume parsing, diagnostics, and job matching with match scores.</li>
           <li>Interactive Resume Editor for live previews and edits.</li>
         </ul>
-        <iframe src="https://docs.google.com/file/d/1RhJIWftfzwdcUUP17wJEWh6rec-rdt-d/preview" height="200" allow="autoplay"></iframe>
+        <img src="images/workie-thumb.png" alt="Workie preview">
       </div>
 
-      <div class="project">
+      <div class="project" onclick="openModal(1)">
         <h3>Job Copilot – Chrome Extension</h3>
         <ul>
           <li>Instant job posting saving & AI-generated match scores.</li>
           <li>AI autofill for application forms using Workie profile data.</li>
           <li>Centralized job tracking synced with main dashboard.</li>
         </ul>
-        <iframe src="https://docs.google.com/file/d/1axboXzjnCFG1fzkNKm6ZxbrFQsG-vUTg/preview" height="200" allow="autoplay"></iframe>
+        <img src="images/workie-extension-thumb.png" alt="Chrome extension preview">
       </div>
 
-      <div class="project">
+      <div class="project" onclick="openModal(2)">
         <h3>AI Agent for Digital Twin Interaction</h3>
         <ul>
           <li>Conversational AI agent for factory insights using natural language queries.</li>
           <li>Built with LangGraph + ReAct-based reasoning engine.</li>
           <li>Integrates RAG, SQL, APIs, and live sensor data.</li>
         </ul>
-        <iframe src="https://docs.google.com/file/d/1l19JRfLrSkDN7OzXoGHplsafH-e4nta5/preview" height="200" allow="autoplay"></iframe>
+        <img src="images/eva-thumb.png" alt="Digital Twin preview">
       </div>
 
-      <div class="project">
+      <div class="project" onclick="openModal(3)">
         <h3>LoRRA (Low-Rank Representation Adaptation)</h3>
         <ul>
           <li>Defense mechanism to make LLMs robust against adversarial attacks.</li>
@@ -113,7 +142,7 @@
         <img src="images/circuit-breaker.png" alt="LoRRA project screenshot">
       </div>
 
-      <div class="project">
+      <div class="project" onclick="openModal(4)">
         <h3>Privacy Scalpel</h3>
         <ul>
           <li>Novel privacy defense for LLMs using Sparse Autoencoders.</li>
@@ -123,14 +152,14 @@
         <img src="images/privacy-scalpel.png" alt="Privacy Scalpel diagram">
       </div>
 
-      <div class="project">
+      <div class="project" onclick="openModal(5)">
         <h3>Sales Development Representatives Agent</h3>
         <ul>
           <li>Multi-agent AI system for automated sales research & lead generation.</li>
           <li>Uses Bright Data + Tavily Search for live research.</li>
           <li>Automated reporting with clean, actionable summaries.</li>
         </ul>
-        <iframe src="https://docs.google.com/file/d/1i8r5Ut-JXdFcH8qV-_ys1uEsFo39NJqY/preview" height="200" allow="autoplay"></iframe>
+        <img src="images/adr-agent-thumb.png" alt="SDR agent preview">
       </div>
 
     </div>
@@ -147,5 +176,76 @@
     <p>© 2025 Muhammad Reza Ar Razi</p>
   </footer>
 
+  <!-- Modal -->
+  <div id="modal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <span class="arrow left" onclick="prevProject()">&#10094;</span>
+    <span class="arrow right" onclick="nextProject()">&#10095;</span>
+    <div class="modal-content" id="modal-body"></div>
+  </div>
+
+  <script>
+    const projects = [
+      { src: "https://docs.google.com/file/d/1RhJIWftfzwdcUUP17wJEWh6rec-rdt-d/preview", type: "video" },
+      { src: "https://docs.google.com/file/d/1axboXzjnCFG1fzkNKm6ZxbrFQsG-vUTg/preview", type: "video" },
+      { src: "https://docs.google.com/file/d/1l19JRfLrSkDN7OzXoGHplsafH-e4nta5/preview", type: "video" },
+      { src: "images/circuit-breaker.png", type: "image" },
+      { src: "images/privacy-scalpel.png", type: "image" },
+      { src: "https://docs.google.com/file/d/1i8r5Ut-JXdFcH8qV-_ys1uEsFo39NJqY/preview", type: "video" }
+    ];
+
+    let currentIndex = -1;
+
+    function openModal(index) {
+      currentIndex = index;
+      const { src, type } = projects[index];
+      const modal = document.getElementById("modal");
+      const modalBody = document.getElementById("modal-body");
+      modal.style.display = "flex";
+
+      if (type === "video") {
+        let videoSrc = src.includes("?") ? src + "&autoplay=1" : src + "?autoplay=1";
+        modalBody.innerHTML = `<iframe src="${videoSrc}" frameborder="0" allow="autoplay; fullscreen"></iframe>`;
+      } else {
+        modalBody.innerHTML = `<img src="${src}" alt="Preview">`;
+      }
+    }
+
+    function closeModal() {
+      const modal = document.getElementById("modal");
+      const modalBody = document.getElementById("modal-body");
+      modal.style.display = "none";
+      modalBody.innerHTML = ""; // stop playback
+      currentIndex = -1;
+    }
+
+    function nextProject() {
+      if (currentIndex === -1) return;
+      currentIndex = (currentIndex + 1) % projects.length;
+      openModal(currentIndex);
+    }
+
+    function prevProject() {
+      if (currentIndex === -1) return;
+      currentIndex = (currentIndex - 1 + projects.length) % projects.length;
+      openModal(currentIndex);
+    }
+
+    window.onclick = function(event) {
+      const modal = document.getElementById("modal");
+      if (event.target === modal) closeModal();
+    }
+
+    window.addEventListener("keydown", (e) => {
+      if (currentIndex === -1) return;
+      if (e.key === "Escape") {
+        closeModal();
+      } else if (e.key === "ArrowRight") {
+        nextProject();
+      } else if (e.key === "ArrowLeft") {
+        prevProject();
+      }
+    });
+  </script>
 </body>
 </html>
